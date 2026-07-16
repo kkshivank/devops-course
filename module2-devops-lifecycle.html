@@ -151,8 +151,13 @@
   .glow{transform-origin:center;animation:glowp 2.6s ease-in-out infinite}
 
   @media(max-width:820px){
-    .stage-wrap{padding:6px 14px}
+    body{height:auto;min-height:100dvh;overflow-x:hidden;overflow-y:auto}
+    .stage-wrap{flex:none;padding:10px 14px}
+    .stage{aspect-ratio:auto;height:auto;min-height:0;max-height:none}
+    .scene{position:relative;inset:auto;display:none;transform:none;min-height:52vh}
+    .scene.active{display:flex}
     .scene h2{font-size:21px}
+    .scene .art svg{max-height:240px}
   }
   @media(max-width:640px){
     .top{padding:10px 14px;gap:8px}

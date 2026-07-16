@@ -109,7 +109,15 @@
   .bubble.swap{opacity:0;transform:translateY(6px)}
 
   @media(max-width:820px){.guide{left:10px;bottom:112px}.guide .bot{width:70px;height:70px}.bubble{max-width:140px;font-size:12px}}
-  @media(max-width:560px){.scene .art{height:170px}.label{display:none}.guide{display:none}}
+  @media(max-width:700px){
+    body{min-height:100dvh}
+    .stage{min-height:0}
+    .scene{position:relative;inset:auto;opacity:1;transform:none;display:none;margin-bottom:0}
+    .scene.active{display:flex}
+    .controls{position:static}
+    .guide{display:none}
+  }
+  @media(max-width:560px){.scene .art{height:170px}.label{display:none}}
 </style>
 </head>
 <body class="no-js">
