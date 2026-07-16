@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DevOps Course — Your Learning Roadmap</title>
+<style>
+  :root{
+    --bg:#0f1226;--card:#1a1f3d;--ink:#eef1ff;--muted:#9aa3d0;
+    --p1:#7c5cff;--p2:#00d4ff;--p3:#ff5da2;--p4:#ffb340;--p5:#28e0a8;--p6:#ff7a59;
+    --line:rgba(255,255,255,.08);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);
+    color:var(--ink);line-height:1.6;padding-bottom:60px;overflow-x:hidden}
+
+  .aurora{position:fixed;inset:0;z-index:-1;overflow:hidden}
+  .aurora span{position:absolute;border-radius:50%;filter:blur(90px);opacity:.5;animation:drift 22s ease-in-out infinite}
+  .aurora span:nth-child(1){width:520px;height:520px;background:var(--p1);top:-140px;left:-120px}
+  .aurora span:nth-child(2){width:480px;height:480px;background:var(--p2);top:-80px;right:-140px;animation-delay:-6s}
+  .aurora span:nth-child(3){width:460px;height:460px;background:var(--p3);bottom:-160px;left:30%;animation-delay:-12s}
+  @keyframes drift{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(60px,50px) scale(1.15)}66%{transform:translate(-50px,30px) scale(.9)}}
+
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px}
+  svg.ic{width:20px;height:20px;stroke:currentColor;stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+
+  .mascot{width:150px;height:150px;margin:0 auto 6px;display:block;animation:float 4s ease-in-out infinite}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+  .mascot .arm{transform-box:fill-box;transform-origin:top center;animation:wave 2.4s ease-in-out infinite}
+  @keyframes wave{0%,100%{transform:rotate(6deg)}50%{transform:rotate(-22deg)}}
+  .mascot .eye{transform-box:fill-box;transform-origin:center;animation:blink 4.5s infinite}
+  @keyframes blink{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}
+  .mascot .antenna,.mascot .spark{animation:pulse 1.6s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:.5}50%{opacity:1}}
+
+  header{text-align:center;padding:56px 20px 40px}
+  .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(124,92,255,.18);
+    border:1px solid rgba(124,92,255,.4);color:#c9bcff;padding:6px 16px;border-radius:100px;
+    font-size:13px;font-weight:600;letter-spacing:.5px}
+  .badge svg.ic{width:15px;height:15px}
+  header h1{font-size:clamp(32px,6vw,52px);margin:18px 0 10px;line-height:1.1;
+    background:linear-gradient(90deg,var(--p1),var(--p2),var(--p3),var(--p1));
+    background-size:300% auto;-webkit-background-clip:text;background-clip:text;
+    -webkit-text-fill-color:transparent;color:var(--p2);animation:shine 8s linear infinite}
+  @keyframes shine{to{background-position:300% center}}
+  header p{color:var(--muted);font-size:18px;max-width:640px;margin:0 auto}
+  .stats{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 24px;min-width:120px}
+  .stat .n{font-size:28px;font-weight:800}
+  .stat .l{font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+
+  .pipe{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px 20px;margin:36px 0 10px;overflow:hidden}
+  .pipe h4{font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:16px;text-align:center}
+  .track{display:flex;align-items:center;justify-content:space-between;gap:8px;position:relative;flex-wrap:nowrap}
+  .track .rail{position:absolute;top:24px;left:6%;right:6%;height:3px;background:rgba(255,255,255,.08);border-radius:3px;overflow:hidden}
+  .track .rail::after{content:"";position:absolute;top:0;left:-40%;width:40%;height:100%;
+    background:linear-gradient(90deg,transparent,var(--p2),transparent);animation:flow 2.6s linear infinite}
+  @keyframes flow{to{left:110%}}
+  .step{display:flex;flex-direction:column;align-items:center;gap:8px;z-index:1;flex:1;min-width:0}
+  .dot{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;background:var(--card);
+    border:1px solid var(--line);color:var(--p2);animation:pop 2.6s ease-in-out infinite}
+  .step:nth-child(2) .dot{color:var(--p1)}
+  .step:nth-child(3) .dot{animation-delay:.35s;color:var(--p2)}
+  .step:nth-child(4) .dot{animation-delay:.7s;color:var(--p4)}
+  .step:nth-child(5) .dot{animation-delay:1.05s;color:var(--p5)}
+  .step:nth-child(6) .dot{animation-delay:1.4s;color:var(--p6)}
+  @keyframes pop{0%,100%{transform:translateY(0);box-shadow:0 0 0 0 rgba(0,212,255,0)}50%{transform:translateY(-5px);box-shadow:0 0 0 6px rgba(0,212,255,.08)}}
+  .step .sl{font-size:12px;color:var(--muted);white-space:nowrap}
+  @media(max-width:560px){.step .sl{display:none}.dot{width:40px;height:40px}}
+
+  .whatis{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:28px 30px;margin:20px 0 10px}
+  .whatis h2{font-size:22px;margin-bottom:8px;display:flex;align-items:center;gap:10px}
+  .whatis h2 svg.ic{color:var(--p2)}
+  .whatis p{color:var(--muted)}
+  .whatis .k{color:var(--ink);font-weight:600}
+
+  .roadmap{margin-top:50px}
+  .module{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:26px 28px;
+    margin-bottom:26px;position:relative;overflow:hidden;
+    animation:rise .6s ease both;transition:box-shadow .25s ease}
+  @keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+  .module:nth-of-type(2){animation-delay:.08s}
+  .module:nth-of-type(3){animation-delay:.16s}
+  .module:nth-of-type(4){animation-delay:.24s}
+  .module:nth-of-type(5){animation-delay:.32s}
+  .module:nth-of-type(6){animation-delay:.40s}
+  .module:hover{box-shadow:0 18px 40px rgba(0,0,0,.4)}
+  .module::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px}
+  .m1::before{background:var(--p1)} .m2::before{background:var(--p2)}
+  .m3::before{background:var(--p3)} .m4::before{background:var(--p4)}
+  .m5::before{background:var(--p5)} .m6::before{background:var(--p6)}
+
+  .mhead{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+  .num{font-size:34px;font-weight:900;opacity:.9;min-width:52px}
+  .m1 .num{color:var(--p1)} .m2 .num{color:var(--p2)} .m3 .num{color:var(--p3)}
+  .m4 .num{color:var(--p4)} .m5 .num{color:var(--p5)} .m6 .num{color:var(--p6)}
+  .mhead h3{font-size:24px;flex:1;min-width:180px}
+  .hours{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.06);
+    border:1px solid var(--line);padding:6px 14px;border-radius:100px;font-size:13px;font-weight:600;color:var(--muted);white-space:nowrap}
+  .hours svg.ic{width:15px;height:15px}
+  .tag{display:inline-block;font-size:12px;font-weight:700;padding:4px 10px;border-radius:8px;margin-top:8px;letter-spacing:.5px}
+  .m1 .tag{background:rgba(124,92,255,.15);color:#c9bcff}
+  .m2 .tag{background:rgba(0,212,255,.15);color:#9fe8ff}
+  .m3 .tag{background:rgba(255,93,162,.15);color:#ffb3d4}
+  .m4 .tag{background:rgba(255,179,64,.15);color:#ffdda3}
+  .m5 .tag{background:rgba(40,224,168,.15);color:#a3f5db}
+  .m6 .tag{background:rgba(255,122,89,.15);color:#ffc4b3}
+
+  .intro{color:var(--muted);margin:16px 0 20px;font-size:16px}
+  .intro b{color:var(--ink)}
+
+  .topics{display:grid;grid-template-columns:1fr;gap:12px}
+  @media(min-width:640px){.topics{grid-template-columns:1fr 1fr}}
+  .topic{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:14px;padding:14px 16px;transition:background .2s ease,transform .2s ease}
+  .topic:hover{background:rgba(255,255,255,.06);transform:translateX(3px)}
+  .topic .t{font-weight:700;font-size:15px;margin-bottom:3px;display:flex;gap:9px;align-items:center}
+  .m1 .topic .t svg.ic{color:var(--p1)} .m2 .topic .t svg.ic{color:var(--p2)}
+  .m3 .topic .t svg.ic{color:var(--p3)} .m4 .topic .t svg.ic{color:var(--p4)}
+  .m5 .topic .t svg.ic{color:var(--p5)} .m6 .topic .t svg.ic{color:var(--p6)}
+  .topic .d{color:var(--muted);font-size:14px}
+
+  .why{margin-top:18px;padding:14px 18px;border-radius:14px;font-size:14px;display:flex;gap:10px;align-items:flex-start;
+    background:rgba(255,255,255,.03);border:1px dashed var(--line)}
+  .why svg.ic{color:var(--p4);margin-top:2px}
+  .why b{color:var(--ink)}
+
+  footer{text-align:center;color:var(--muted);margin-top:50px;font-size:14px}
+  .progress-note{text-align:center;color:var(--muted);margin:10px 0 40px;font-size:15px}
+
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="aurora"><span></span><span></span><span></span></div>
+
+<header>
+  <svg class="mascot" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="body" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8b6cff"/><stop offset="1" stop-color="#5b3fe0"/></linearGradient>
+      <linearGradient id="face" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0e1330"/><stop offset="1" stop-color="#151a3d"/></linearGradient>
+    </defs>
+    <line x1="60" y1="24" x2="60" y2="14" stroke="#00d4ff" stroke-width="3" stroke-linecap="round"/>
+    <circle class="antenna" cx="60" cy="11" r="4" fill="#00d4ff"/>
+    <circle class="spark" cx="60" cy="11" r="8" fill="#00d4ff" opacity=".2"/>
+    <rect class="arm" x="18" y="52" width="9" height="30" rx="4.5" fill="url(#body)"/>
+    <rect x="93" y="60" width="9" height="26" rx="4.5" fill="url(#body)"/>
+    <rect x="30" y="24" width="60" height="46" rx="16" fill="url(#body)"/>
+    <rect x="37" y="32" width="46" height="30" rx="11" fill="url(#face)"/>
+    <circle class="eye" cx="50" cy="47" r="5" fill="#00d4ff"/>
+    <circle class="eye" cx="70" cy="47" r="5" fill="#00d4ff"/>
+    <path d="M52 55q8 6 16 0" stroke="#28e0a8" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+    <rect x="34" y="72" width="52" height="34" rx="12" fill="url(#body)"/>
+    <rect x="44" y="82" width="32" height="14" rx="7" fill="#0e1330" opacity=".55"/>
+    <circle cx="52" cy="89" r="2.4" fill="#ff5da2"/>
+    <circle cx="60" cy="89" r="2.4" fill="#ffb340"/>
+    <circle cx="68" cy="89" r="2.4" fill="#28e0a8"/>
+    <rect x="44" y="106" width="9" height="10" rx="4" fill="#5b3fe0"/>
+    <rect x="67" y="106" width="9" height="10" rx="4" fill="#5b3fe0"/>
+  </svg>
+  <span class="badge">
+    <svg class="ic" viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.3-2 5-2 5s3.7-.5 5-2c.8-.9.7-2.3-.1-3.1a2.2 2.2 0 0 0-3-.1z"/><path d="M12 15l-3-3a12 12 0 0 1 7-9c2.6 0 4 1.4 4 4a12 12 0 0 1-9 7z"/><path d="M9 12H4l2-3h4"/><path d="M12 15v5l3-2v-4"/></svg>
+    DEVOPS COURSE · 45 HOURS
+  </span>
+  <h1>From Zero to DevOps Engineer</h1>
+  <p>A complete roadmap of everything you'll learn — explained simply, so you actually know <em>why</em> each topic matters before you dive in.</p>
+  <div class="stats">
+    <div class="stat"><div class="n">6</div><div class="l">Modules</div></div>
+    <div class="stat"><div class="n">45</div><div class="l">CI Hours</div></div>
+    <div class="stat"><div class="n">7+</div><div class="l">Tools</div></div>
+    <div class="stat"><div class="n">High</div><div class="l">Job Demand</div></div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="pipe">
+    <h4>The DevOps Lifecycle in motion</h4>
+    <div class="track">
+      <div class="rail"></div>
+      <div class="step"><div class="dot"><svg class="ic" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></div><span class="sl">Code</span></div>
+      <div class="step"><div class="dot"><svg class="ic" viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><span class="sl">Build</span></div>
+      <div class="step"><div class="dot"><svg class="ic" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></div><span class="sl">Test</span></div>
+      <div class="step"><div class="dot"><svg class="ic" viewBox="0 0 24 24"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7z"/></svg></div><span class="sl">Release</span></div>
+      <div class="step"><div class="dot"><svg class="ic" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><span class="sl">Monitor</span></div>
+    </div>
+  </div>
+
+  <div class="whatis">
+    <h2><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg> So what is DevOps, really?</h2>
+    <p>Imagine developers who <span class="k">write</span> the code and operations teams who <span class="k">run</span> the servers finally working as one team. <b style="color:var(--ink)">DevOps</b> is that culture plus a set of tools that lets you build, test, and ship software <span class="k">fast, safely, and automatically</span>. This course walks you through the whole journey — writing code, tracking versions, automating tests, packaging apps, and deploying them to the cloud.</p>
+  </div>
+
+  <p class="progress-note">Follow the roadmap top to bottom — each block builds on the last.</p>
+
+  <div class="roadmap">
+
+    <div class="module m1">
+      <div class="mhead">
+        <div class="num">01</div>
+        <h3>Getting Started</h3>
+        <span class="hours"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> 1 hour</span>
+      </div>
+      <span class="tag">THE WARM-UP</span>
+      <p class="intro">Before running, we walk. This short intro sets the stage: <b>what</b> you'll achieve by the end of this course and <b>where</b> it can take your career.</p>
+      <div class="topics">
+        <div class="topic"><div class="t"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg> Objective &amp; Scope</div><div class="d">What the course covers and the skills you'll walk away with.</div></div>
+        <div class="topic"><div class="t"><svg class="ic" viewBox="0 0 24 24"><path d="M4 22V4a2 2 0 0 1 2-2h11l-3 4 3 4H6"/></svg> Outcome</div><div class="d">The real-world capabilities you'll have as a DevOps beginner.</div></div>
+      </div>
+      <div class="why"><svg class="ic" viewBox="0 0 24 24"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1V18h6v-1.2c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2z"/></svg><span><b>Why it matters:</b> Knowing the destination makes the whole journey click into place.</span></div>
+    </div>
+
+    <div class="module m2">
+      <div class="mhead">
+        <div class="num">02</div>
+        <h3>DevOps &amp; Its Lifecycle</h3>
+        <span class="hours"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> 8 hours</span>
+      </div>
+      <span class="tag">THE FOUNDATION</span>
+      <p class="intro">Here you learn the <b>mindset</b> behind DevOps — the culture, the roles, and the never-ending loop that keeps modern software moving.</p>
+      <div class="topics">
+        <div class="topic"><div class="t"><svg class="ic" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg> DevOps Lifecycle</div><div class="d">The continuous loop: plan, build, test, release, monitor, repeat.</div></div>
+        <div class="topic"><div class="t"><svg class="ic" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9"/></svg> Roles &amp; Responsibilities</div><div class="d">What a DevOps Engineer actually does day to day.</div></div>
+        <div class="topic"><div class="t"><svg class="ic" viewBox="0 0 24 24"><path d="M14 9a2 2 0 0 1-2 2H8l-4 4V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2z"/><path d="M18 9h2a2 2 0 0 1 2 2v10l-4-4h-4a2 2 0 0 1-2-2"/></svg> DevOps Principles</div><div class="d">Collaboration, automation, continuous improvement &amp; monitoring.</div></div>
+        <div class="topic"><div class="t"><svg class="ic" viewBox="0 0 24 24"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg> Agile vs DevOps</div><div class="d">How they differ and why they work best together.</div></div>
+        <div class="topic"><div class="t"><svg class="ic" viewBox="0 0 24 24"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg> Infrastructure as Code</div><div class="d">Managing servers with code instead of manual clicks.</div></div>
+        <div class="topic"><div class="t"><svg class="ic" viewBox="0 0 24 24"><path d="M20.6 8.5 12 3 3.4 8.5"/><path d="M12 22V12"/><path d="M3 8v8l9 6 9-6V8"/></svg> Goals &amp; Benefits</div><div class="d">Faster releases, fewer failures, happier teams.</div></div>
+      </div>
+      <div class="why"><svg class="ic" viewBox="0 0 24 24"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1V18h6v-1.2c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2z"/></svg><span><b>Why it matters:</b> This is the big-picture chapter — every tool you learn later fits somewhere in this lifecycle.</span></div>
+    </div>
+
+    <div class="module m3">
+      <div class="mhead">
+        <div class="num">03</div>
+        <h3>Version Control Systems</h3>
+        <span class="hours"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> 8 hours</span>
+      </div>
+      <span class="tag">YOUR TIME MACHINE</span>
+      <p class="intro">Ever wished for an "undo" for your entire project? That's <b>Git</b>. You'll learn to track every change, collaborate without chaos, and never lose work again.</p>
+      <div class="topics">
+        <div class="topic"><div class="t"><svg class="ic" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> Intro &amp; Types of VCS</div><div class="d">What version control is, and centralized vs distributed types.</div></div>
+        <div class="topic"><div class="t"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M3 12h6"/><path d="M15 12h6"/></svg> Git Fundamentals</div><div class="d">How Git thinks about and tracks your code.</div></div>
+        <div class="topic"><div class="t"><svg class="ic" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg> Git Repository Concepts</div><div class="d">How Git stores and organizes your project's history.</div></div>
+        <div class="topic"><div class="t"><svg class="ic" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h.01M11 8h.01M7 12h6"/></svg> Git Commands</div><div class="d">init, clone, add, commit, push, pull, branch, merge.</div></div>
+        <div class="topic"><div class="t"><svg class="ic" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="9" r="3"/><path d="M18 12a6 6 0 0 1-6 6H6"/><path d="M6 9v6"/></svg> Branching &amp; Merging</div><div class="d">Work on features safely, then combine them cleanly.</div></div>
+        <div class="topic"><div class="t"><svg class="ic" viewBox="0 0 24 24"><path d="M4 4h6l2 2h8v12H4z"/></svg> Repository Management</div><div class="d">Keeping your project organized and shareable.</div></div>
+      </div>
+      <div class="why"><svg class="ic" viewBox="0 0 24 24"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1V18h6v-1.2c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2z"/></svg><span><b>Why it matters:</b> Git is used by virtually every software team on earth. Master this and you speak the industry's language.</span></div>
+    </div>
+
+    <div class="module m4">
+      <div class="mhead">
+        <div class="num">04</div>
+        <h3>CI, Jenkins &amp; Build Automation</h3>
+        <span class="hours"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> 9 hours</span>
+      </div>
+      <span class="tag">THE AUTOMATION ENGINE</span>
+      <p class="intro">Stop testing by hand. With <b>CI</b> and <b>Jenkins</b>, every code change is automatically built and tested — so bugs get caught in minutes, not weeks.</p>
+      <div class="topics">
+        <div class="topic"><div class="t"><svg class="ic" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg> CI &amp; Workflow</div><div class="d">What Continuous Integration is, its workflow &amp; tools.</div></div>
+        <div class="topic"><div class="t"><svg class="ic" viewBox="0 0 24 24"><rect x="9" y="2" width="6" height="6" rx="1"/><rect x="3" y="16" width="6" height="6" rx="1"/><rect x="15" y="16" width="6" height="6" rx="1"/><path d="M12 8v4M6 16v-2h12v2"/></svg> Jenkins &amp; Architecture</div><div class="d">Jenkins intro, dashboard &amp; Controller-Node setup.</div></div>
+        <div class="topic"><div class="t"><svg class="ic" viewBox="0 0 24 24"><path d="M12 2v6"/><path d="m8 5 4-3 4 3"/><circle cx="12" cy="15" r="6"/><path d="M12 12v3l2 1"/></svg> Jobs, Pipelines &amp; Jenkinsfile</div><div class="d">Freestyle vs Pipeline and Jenkinsfile basics.</div></div>
+        <div class="topic"><div class="t"><svg class="ic" viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.6 5.6l-6.3 6.3a2 2 0 1 0 2.8 2.8l6.3-6.3a4 4 0 0 0 5.6-5.6l-2.5 2.5-2.1-2.1z"/></svg> Build Automation</div><div class="d">Turn source code into a ready-to-ship app, automatically.</div></div>
+        <div class="topic"><div class="t"><svg class="ic" viewBox="0 0 24 24"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg> Automated Testing</div><div class="d">Tests run on every change within the CI pipeline.</div></div>
+        <div class="topic"><div class="t"><svg class="ic" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> Continuous Feedback</div><div class="d">Instant feedback to developers in the CI process.</div></div>
+      </div>
+      <div class="why"><svg class="ic" viewBox="0 0 24 24"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1V18h6v-1.2c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2z"/></svg><span><b>Why it matters:</b> This is where DevOps starts to feel like magic — the machine does the boring, repetitive work for you.</span></div>
+    </div>
+
+    <div class="module m5">
+      <div class="mhead">
+        <div class="num">05</div>
+        <h3>Deployment &amp; Containerization</h3>
+        <span class="hours"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> 9 hours</span>
+      </div>
+      <span class="tag">SHIP IT</span>
+      <p class="intro">Building an app is half the battle — now let's <b>deliver</b> it. You'll learn deployment strategies and <b>Docker</b>, which packages your app so it runs the same everywhere.</p>
+      <div class="topics">
+        <div class="topic"><div class="t"><svg class="ic" viewBox="0 0 24 24"><path d="M10 17h4V5H2v12h3"/><path d="M15 8h4l3 4v5h-3"/><circle cx="7.5" cy="17.5" r="1.5"/><circle cx="17.5" cy="17.5" r="1.5"/></svg> Delivery &amp; Deployment</div><div class="d">Continuous Delivery vs Deployment concepts.</div></div>
+        <div class="topic"><div class="t"><svg class="ic" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg> CI/CD Pipeline &amp; Strategies</div><div class="d">Pipeline overview and smart deployment strategies.</div></div>
+        <div class="topic"><div class="t"><svg class="ic" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg> Configuration Management</div><div class="d">Keeping system configuration consistent and controlled.</div></div>
+        <div class="topic"><div class="t"><svg class="ic" viewBox="0 0 24 24"><rect x="2" y="4" width="9" height="7" rx="1"/><rect x="13" y="4" width="9" height="7" rx="1"/><rect x="2" y="14" width="20" height="6" rx="1"/></svg> Virtualization vs Containers</div><div class="d">How containers differ from traditional VMs.</div></div>
+        <div class="topic"><div class="t"><svg class="ic" viewBox="0 0 24 24"><path d="M21 8v8a2 2 0 0 1-1 1.7l-7 4a2 2 0 0 1-2 0l-7-4A2 2 0 0 1 3 16V8a2 2 0 0 1 1-1.7l7-4a2 2 0 0 1 2 0l7 4A2 2 0 0 1 21 8z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg> Docker Basics &amp; Architecture</div><div class="d">Images, containers, and how it all fits together.</div></div>
+        <div class="topic"><div class="t"><svg class="ic" viewBox="0 0 24 24"><path d="m4 17 6-6-6-6"/><path d="M12 19h8"/></svg> Docker Commands</div><div class="d">Build, run, and manage containers hands-on.</div></div>
+      </div>
+      <div class="why"><svg class="ic" viewBox="0 0 24 24"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1V18h6v-1.2c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2z"/></svg><span><b>Why it matters:</b> "It works on my machine" is a famous developer nightmare. Docker ends it for good.</span></div>
+    </div>
+
+    <div class="module m6">
+      <div class="mhead">
+        <div class="num">06</div>
+        <h3>Kubernetes &amp; Monitoring</h3>
+        <span class="hours"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> 10 hours</span>
+      </div>
+      <span class="tag">THE BIG LEAGUES</span>
+      <p class="intro">One container is easy. Running <b>hundreds</b> across many servers? That needs <b>Kubernetes</b>. Plus you'll learn to <b>watch</b> everything with Prometheus &amp; Grafana.</p>
+      <div class="topics">
+        <div class="topic"><div class="t"><svg class="ic" viewBox="0 0 24 24"><path d="M12 2 3 7v10l9 5 9-5V7z"/><path d="M12 2v20M3 7l9 5 9-5"/></svg> Kubernetes &amp; Orchestration</div><div class="d">Intro, architecture &amp; container orchestration basics.</div></div>
+        <div class="topic"><div class="t"><svg class="ic" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg> Pods &amp; Containers</div><div class="d">The building blocks Kubernetes manages.</div></div>
+        <div class="topic"><div class="t"><svg class="ic" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg> Prometheus &amp; Metrics</div><div class="d">Architecture, time-series data, counters, gauges, histograms.</div></div>
+        <div class="topic"><div class="t"><svg class="ic" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 14v3M12 10v7M17 7v10"/></svg> Grafana Dashboards</div><div class="d">Create dashboards to visualize your metrics.</div></div>
+        <div class="topic"><div class="t"><svg class="ic" viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9z"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg> Logging &amp; Alerting</div><div class="d">Get notified the moment something goes wrong.</div></div>
+        <div class="topic"><div class="t"><svg class="ic" viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/><circle cx="12" cy="12" r="4"/><path d="m12 12 3-3"/></svg> Performance Monitoring</div><div class="d">Keep systems fast, healthy, and observable.</div></div>
+      </div>
+      <div class="why"><svg class="ic" viewBox="0 0 24 24"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1V18h6v-1.2c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2z"/></svg><span><b>Why it matters:</b> This is what powers Netflix, Uber &amp; Spotify. Finish here and you can honestly call yourself a DevOps engineer.</span></div>
+    </div>
+
+  </div>
+
+  <footer>
+    <p style="opacity:.6">DevOps Course · Learning Roadmap</p>
+  </footer>
+
+</div>
+</body>
+</html>

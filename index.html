@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DevOps Practices &amp; Principles — Course</title>
+<style>
+  :root{
+    --bg:#0b0e20;--card:#161c3a;--ink:#eef1ff;--muted:#9aa3d0;
+    --p1:#7c5cff;--p2:#00d4ff;--p3:#ff5da2;--p4:#ffb340;--p5:#28e0a8;--p6:#ff7a59;
+    --line:rgba(255,255,255,.09);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--ink);line-height:1.6;
+    padding-bottom:60px;overflow-x:hidden;background:
+      radial-gradient(900px 500px at 12% -8%,rgba(124,92,255,.28),transparent),
+      radial-gradient(800px 460px at 100% 0%,rgba(0,212,255,.2),transparent),var(--bg)}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 20px}
+  svg.ic{width:20px;height:20px;stroke:currentColor;stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round}
+
+  header{text-align:center;padding:56px 20px 30px}
+  .mascot{width:120px;height:120px;margin:0 auto 4px;display:block;animation:float 4s ease-in-out infinite}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+  .mascot .eye{transform-box:fill-box;transform-origin:center;animation:blink 4.5s infinite}
+  @keyframes blink{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}
+  .mascot .spark{animation:pulse 1.6s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:.5}50%{opacity:1}}
+  header h1{font-size:clamp(28px,5vw,44px);line-height:1.1;margin:10px 0 8px;
+    background:linear-gradient(90deg,var(--p1),var(--p2),var(--p3),var(--p1));background-size:300% auto;
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:var(--p2);animation:shine 8s linear infinite}
+  @keyframes shine{to{background-position:300% center}}
+  header p{color:var(--muted);font-size:17px}
+  .meta{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+  .pill{background:var(--card);border:1px solid var(--line);border-radius:100px;padding:7px 16px;font-size:13px;color:var(--muted)}
+  .pill b{color:var(--ink)}
+  .overview{display:inline-flex;align-items:center;gap:8px;margin-top:20px;background:rgba(124,92,255,.16);
+    border:1px solid rgba(124,92,255,.4);color:#c9bcff;padding:9px 18px;border-radius:12px;
+    text-decoration:none;font-weight:600;font-size:14px;transition:background .2s ease}
+  .overview:hover{background:rgba(124,92,255,.28)}
+
+  .sec{margin-top:30px;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);text-align:center}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px;margin-top:20px}
+  .mod{position:relative;display:block;background:var(--card);border:1px solid var(--line);border-radius:18px;
+    padding:22px 22px 20px;text-decoration:none;color:inherit;overflow:hidden;
+    animation:rise .6s ease both;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+  @keyframes rise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+  .mod:nth-child(2){animation-delay:.06s}.mod:nth-child(3){animation-delay:.12s}
+  .mod:nth-child(4){animation-delay:.18s}.mod:nth-child(5){animation-delay:.24s}.mod:nth-child(6){animation-delay:.3s}
+  .mod::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px}
+  .m1::before{background:var(--p1)}.m2::before{background:var(--p2)}.m3::before{background:var(--p3)}
+  .m4::before{background:var(--p4)}.m5::before{background:var(--p5)}.m6::before{background:var(--p6)}
+  a.mod:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,0,0,.4)}
+  .m1:hover{border-color:var(--p1)}.m2:hover{border-color:var(--p2)}
+
+  .mtop{display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .mnum{font-size:30px;font-weight:900}
+  .m1 .mnum{color:var(--p1)}.m2 .mnum{color:var(--p2)}.m3 .mnum{color:var(--p3)}
+  .m4 .mnum{color:var(--p4)}.m5 .mnum{color:var(--p5)}.m6 .mnum{color:var(--p6)}
+  .hrs{font-size:12px;font-weight:600;color:var(--muted);background:rgba(255,255,255,.06);border:1px solid var(--line);
+    padding:4px 11px;border-radius:100px}
+  .mod h3{font-size:19px;margin:12px 0 6px}
+  .mod .d{color:var(--muted);font-size:14px;min-height:42px}
+  .go{display:inline-flex;align-items:center;gap:7px;margin-top:14px;font-weight:600;font-size:14px}
+  .m1 .go{color:#c9bcff}.m2 .go{color:#9fe8ff}
+
+  .locked{opacity:.6;cursor:default}
+  .locked:hover{transform:none;box-shadow:none}
+  .soon{display:inline-flex;align-items:center;gap:7px;margin-top:14px;font-weight:600;font-size:13px;color:var(--muted)}
+
+  footer{text-align:center;color:var(--muted);margin-top:44px;font-size:13px;opacity:.7}
+  @media(max-width:520px){.grid{grid-template-columns:1fr}.mod .d{min-height:0}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <svg class="mascot" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+      <defs><linearGradient id="b" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8b6cff"/><stop offset="1" stop-color="#5b3fe0"/></linearGradient></defs>
+      <line x1="60" y1="24" x2="60" y2="14" stroke="#00d4ff" stroke-width="3" stroke-linecap="round"/>
+      <circle class="spark" cx="60" cy="11" r="8" fill="#00d4ff" opacity=".25"/><circle class="spark" cx="60" cy="11" r="4" fill="#00d4ff"/>
+      <rect x="30" y="24" width="60" height="46" rx="16" fill="url(#b)"/>
+      <rect x="37" y="32" width="46" height="30" rx="11" fill="#0e1330"/>
+      <circle class="eye" cx="50" cy="47" r="5" fill="#00d4ff"/><circle class="eye" cx="70" cy="47" r="5" fill="#00d4ff"/>
+      <path d="M52 55q8 6 16 0" stroke="#28e0a8" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+      <rect x="34" y="72" width="52" height="34" rx="12" fill="#5b3fe0"/>
+      <circle cx="52" cy="89" r="2.4" fill="#ff5da2"/><circle cx="60" cy="89" r="2.4" fill="#ffb340"/><circle cx="68" cy="89" r="2.4" fill="#28e0a8"/>
+      <rect x="44" y="106" width="9" height="10" rx="4" fill="#5b3fe0"/><rect x="67" y="106" width="9" height="10" rx="4" fill="#5b3fe0"/>
+    </svg>
+    <h1>DevOps Practices &amp; Principles</h1>
+    <p>Your visual course — pick a module to start learning.</p>
+    <div class="meta">
+      <span class="pill"><b>6</b> Modules</span>
+      <span class="pill"><b>45</b> Hours</span>
+      <span class="pill"><b>Zero</b> to job-ready</span>
+    </div>
+    <br>
+    <a class="overview" href="devops-explainer.html">
+      <svg class="ic" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      Full syllabus roadmap
+    </a>
+  </header>
+
+  <div class="sec">Modules</div>
+
+  <div class="grid">
+
+    <a class="mod m1" href="module1-introduction.html">
+      <div class="mtop"><div class="mnum">01</div><span class="hrs">1 hour</span></div>
+      <h3>Introduction</h3>
+      <div class="d">Objective, scope and outcome — where this course takes you.</div>
+      <span class="go">Start<svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+
+    <a class="mod m2" href="module2-devops-lifecycle.html">
+      <div class="mtop"><div class="mnum">02</div><span class="hrs">8 hours</span></div>
+      <h3>DevOps &amp; Its Lifecycle</h3>
+      <div class="d">The mindset, the infinity lifecycle, roles, principles, Agile and IaC.</div>
+      <span class="go">Start<svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+
+    <div class="mod m3 locked">
+      <div class="mtop"><div class="mnum">03</div><span class="hrs">8 hours</span></div>
+      <h3>Version Control Systems</h3>
+      <div class="d">Git fundamentals, commands, branching, merging and repositories.</div>
+      <span class="soon"><svg class="ic" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Coming soon</span>
+    </div>
+
+    <div class="mod m4 locked">
+      <div class="mtop"><div class="mnum">04</div><span class="hrs">9 hours</span></div>
+      <h3>CI, Jenkins &amp; Build Automation</h3>
+      <div class="d">Continuous integration, Jenkins pipelines and automated testing.</div>
+      <span class="soon"><svg class="ic" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Coming soon</span>
+    </div>
+
+    <div class="mod m5 locked">
+      <div class="mtop"><div class="mnum">05</div><span class="hrs">9 hours</span></div>
+      <h3>Deployment &amp; Containerization</h3>
+      <div class="d">CI/CD, deployment strategies and Docker basics to commands.</div>
+      <span class="soon"><svg class="ic" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Coming soon</span>
+    </div>
+
+    <div class="mod m6 locked">
+      <div class="mtop"><div class="mnum">06</div><span class="hrs">10 hours</span></div>
+      <h3>Kubernetes &amp; Monitoring</h3>
+      <div class="d">Kubernetes, pods, and monitoring with Prometheus and Grafana.</div>
+      <span class="soon"><svg class="ic" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Coming soon</span>
+    </div>
+
+  </div>
+
+  <footer>DevOps Practices &amp; Principles — Course Roadmap</footer>
+</div>
+</body>
+</html>
