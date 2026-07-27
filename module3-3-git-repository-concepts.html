@@ -62,91 +62,170 @@
 <div class="stage-wrap">
   <div class="stage" id="stage">
 
+    <!-- 0. Intro -->
     <section class="scene active">
       <div class="art">
         <svg viewBox="0 0 480 260">
-          <circle class="glow" cx="240" cy="122" r="66" fill="#7c5cff" opacity=".3"/>
-          <g class="bob" transform="translate(202,60)"><rect x="10" y="8" width="60" height="46" rx="16" fill="#6a4fee"/><rect x="17" y="16" width="46" height="30" rx="11" fill="#0e1330"/><circle class="eye" cx="30" cy="31" r="5" fill="#00d4ff"/><circle class="eye" cx="50" cy="31" r="5" fill="#00d4ff"/><path d="M32 39q8 6 16 0" stroke="#28e0a8" stroke-width="2.6" fill="none" stroke-linecap="round"/><line x1="40" y1="8" x2="40" y2="0" stroke="#00d4ff" stroke-width="3" stroke-linecap="round"/><circle cx="40" cy="-3" r="4" fill="#00d4ff" class="glow"/></g>
-          <text class="u0" x="240" y="170" text-anchor="middle" font-size="24" font-weight="800" fill="#eef1ff">Git Repository Concepts</text>
-          <text class="u0" x="240" y="196" text-anchor="middle" font-size="14" fill="#9aa3d0">Where your files live as they move into history</text>
+          <circle class="glow" cx="240" cy="120" r="70" fill="#7c5cff" opacity=".3"/>
+          <g class="bob" transform="translate(202,54)"><rect x="10" y="8" width="60" height="46" rx="16" fill="#6a4fee"/><rect x="17" y="16" width="46" height="30" rx="11" fill="#0e1330"/><circle class="eye" cx="30" cy="31" r="5" fill="#00d4ff"/><circle class="eye" cx="50" cy="31" r="5" fill="#00d4ff"/><path d="M32 39q8 6 16 0" stroke="#28e0a8" stroke-width="2.6" fill="none" stroke-linecap="round"/><line x1="40" y1="8" x2="40" y2="0" stroke="#00d4ff" stroke-width="3" stroke-linecap="round"/><circle cx="40" cy="-3" r="4" fill="#00d4ff" class="glow"/></g>
+          <text class="u0" x="240" y="168" text-anchor="middle" font-size="24" font-weight="800" fill="#eef1ff">Git Repository Concepts</text>
+          <text class="u0" x="240" y="194" text-anchor="middle" font-size="14" fill="#9aa3d0">Working Directory → Staging → Repository → Remote</text>
         </svg>
       </div>
       <h2 style="opacity:0"></h2>
     </section>
 
+    <!-- 1. What is a repository -->
     <section class="scene">
       <div class="art">
         <svg viewBox="0 0 480 240">
-          <g class="r0"><rect x="20" y="80" width="130" height="90" rx="12" fill="#1a2143" stroke="#7c5cff"/><text x="85" y="130" text-anchor="middle" font-size="12" font-weight="700" fill="#c9bcff">Working</text><text x="85" y="147" text-anchor="middle" font-size="12" font-weight="700" fill="#c9bcff">Directory</text></g>
-          <g class="r1"><rect x="175" y="80" width="130" height="90" rx="12" fill="#1a2143" stroke="#ffb340"/><text x="240" y="130" text-anchor="middle" font-size="12" font-weight="700" fill="#ffdda3">Staging</text><text x="240" y="147" text-anchor="middle" font-size="12" font-weight="700" fill="#ffdda3">Area</text></g>
-          <g class="r2"><rect x="330" y="80" width="130" height="90" rx="12" fill="#1a2143" stroke="#28e0a8"/><text x="395" y="130" text-anchor="middle" font-size="12" font-weight="700" fill="#a3f5db">Repository</text><text x="395" y="147" text-anchor="middle" font-size="11" fill="#9aa3d0">(.git)</text></g>
+          <g class="r0"><rect x="130" y="52" width="220" height="128" rx="16" fill="#122" stroke="#28e0a8" stroke-width="2"/><text x="240" y="76" text-anchor="middle" font-size="13" font-weight="700" fill="#a3f5db">.git repository</text></g>
+          <g class="r1"><circle cx="175" cy="128" r="11" fill="#7c5cff"/><circle cx="240" cy="128" r="11" fill="#00d4ff"/><circle cx="305" cy="128" r="11" fill="#28e0a8"/><path d="M186 128h43 M251 128h43" stroke="#9aa3d0" stroke-width="2"/></g>
+          <text class="r2" x="240" y="160" text-anchor="middle" font-size="10" fill="#9aa3d0">commit history (every version)</text>
+          <text class="u1" x="240" y="210" text-anchor="middle" font-size="12" fill="#9aa3d0">A repository = your whole project + its entire history</text>
+        </svg>
+      </div>
+      <h2>What is a Repository?</h2>
+    </section>
+
+    <!-- 2. Three areas -->
+    <section class="scene">
+      <div class="art">
+        <svg viewBox="0 0 480 240">
+          <g class="r0"><rect x="20" y="80" width="130" height="90" rx="12" fill="#1a2143" stroke="#7c5cff"/><text x="85" y="128" text-anchor="middle" font-size="12" font-weight="700" fill="#c9bcff">Working</text><text x="85" y="145" text-anchor="middle" font-size="12" font-weight="700" fill="#c9bcff">Directory</text></g>
+          <g class="r1"><rect x="175" y="80" width="130" height="90" rx="12" fill="#1a2143" stroke="#ffb340"/><text x="240" y="128" text-anchor="middle" font-size="12" font-weight="700" fill="#ffdda3">Staging</text><text x="240" y="145" text-anchor="middle" font-size="12" font-weight="700" fill="#ffdda3">Area</text></g>
+          <g class="r2"><rect x="330" y="80" width="130" height="90" rx="12" fill="#1a2143" stroke="#28e0a8"/><text x="395" y="128" text-anchor="middle" font-size="12" font-weight="700" fill="#a3f5db">Repository</text><text x="395" y="145" text-anchor="middle" font-size="11" fill="#9aa3d0">(.git)</text></g>
           <g class="r1"><path d="M155 125 h16" stroke="#9aa3d0" stroke-width="2"/><path d="M171 125l-6 -4 M171 125l-6 4" stroke="#9aa3d0" stroke-width="2" fill="none"/></g>
           <g class="r2"><path d="M310 125 h16" stroke="#9aa3d0" stroke-width="2"/><path d="M326 125l-6 -4 M326 125l-6 4" stroke="#9aa3d0" stroke-width="2" fill="none"/></g>
-          <text class="u1" x="240" y="206" text-anchor="middle" font-size="12" fill="#9aa3d0">A Git project has three areas: Working Directory, Staging Area, and Repository</text>
+          <text class="u1" x="240" y="206" text-anchor="middle" font-size="12" fill="#9aa3d0">Three areas: Working Directory, Staging Area, and Repository</text>
         </svg>
       </div>
       <h2>The Three Areas</h2>
     </section>
 
+    <!-- 3. Working Directory + file states -->
     <section class="scene">
       <div class="art">
         <svg viewBox="0 0 480 240">
-          <g class="r0"><rect x="150" y="60" width="180" height="110" rx="12" fill="#1a2143" stroke="#7c5cff" stroke-width="2"/></g>
-          <g class="r1"><rect x="170" y="80" width="60" height="12" rx="3" fill="#7c5cff" opacity=".55"/><rect x="170" y="100" width="80" height="12" rx="3" fill="#00d4ff" opacity=".55"/><rect x="170" y="120" width="50" height="12" rx="3" fill="#28e0a8" opacity=".55"/><rect x="170" y="140" width="70" height="12" rx="3" fill="#ffb340" opacity=".55"/></g>
-          <g class="r2"><path class="ic" d="M292 86l6 6 12 -12" stroke="#28e0a8"/></g>
-          <text class="u1" x="240" y="206" text-anchor="middle" font-size="12" fill="#9aa3d0">Working Directory: the actual files on your computer that you edit</text>
+          <g class="r0"><rect x="140" y="44" width="200" height="150" rx="12" fill="#1a2143" stroke="#7c5cff" stroke-width="2"/><text x="240" y="66" text-anchor="middle" font-size="12" font-weight="700" fill="#c9bcff">Working Directory</text></g>
+          <g class="r1"><rect x="160" y="82" width="160" height="24" rx="6" fill="#0e1330"/><text x="170" y="98" font-size="11" fill="#eef1ff" font-family="monospace">index.html</text><text x="312" y="98" text-anchor="end" font-size="9" fill="#ffb340">modified</text></g>
+          <g class="r2"><rect x="160" y="114" width="160" height="24" rx="6" fill="#0e1330"/><text x="170" y="130" font-size="11" fill="#eef1ff" font-family="monospace">style.css</text><text x="312" y="130" text-anchor="end" font-size="9" fill="#28e0a8">tracked</text></g>
+          <g class="r3"><rect x="160" y="146" width="160" height="24" rx="6" fill="#0e1330"/><text x="170" y="162" font-size="11" fill="#eef1ff" font-family="monospace">notes.txt</text><text x="312" y="162" text-anchor="end" font-size="9" fill="#9aa3d0">untracked</text></g>
+          <text class="u1" x="240" y="212" text-anchor="middle" font-size="12" fill="#9aa3d0">The real files you edit — each is tracked, modified, or untracked</text>
         </svg>
       </div>
       <h2>Working Directory</h2>
     </section>
 
+    <!-- 4. File lifecycle -->
     <section class="scene">
       <div class="art">
         <svg viewBox="0 0 480 240">
-          <g class="r0"><rect x="70" y="80" width="120" height="90" rx="12" fill="#1a2143" stroke="#7c5cff"/><text x="130" y="128" text-anchor="middle" font-size="11" font-weight="700" fill="#c9bcff">Working</text></g>
-          <g class="r1"><rect x="290" y="80" width="120" height="90" rx="12" fill="#1a2143" stroke="#ffb340"/><text x="350" y="128" text-anchor="middle" font-size="11" font-weight="700" fill="#ffdda3">Staging</text></g>
-          <g style="clip-path:inset(0 34% 0 27%)"><rect class="mv1" x="196" y="112" width="20" height="16" rx="3" fill="#28e0a8"/><rect class="mv2" x="196" y="112" width="20" height="16" rx="3" fill="#00d4ff"/></g>
-          <text class="r2" x="240" y="102" text-anchor="middle" font-size="12" fill="#9fe8ff" font-family="monospace">git add</text>
-          <text class="u1" x="240" y="206" text-anchor="middle" font-size="12" fill="#9aa3d0">Staging Area: you pick which changes go into the next commit — using git add</text>
+          <g class="r0"><rect x="18" y="96" width="96" height="48" rx="10" fill="#1a2143" stroke="#9aa3d0"/><text x="66" y="125" text-anchor="middle" font-size="11" font-weight="700" fill="#cfd6f5">Untracked</text></g>
+          <g class="r1"><rect x="132" y="96" width="96" height="48" rx="10" fill="#1a2143" stroke="#ffb340"/><text x="180" y="125" text-anchor="middle" font-size="11" font-weight="700" fill="#ffdda3">Modified</text></g>
+          <g class="r2"><rect x="246" y="96" width="96" height="48" rx="10" fill="#1a2143" stroke="#00d4ff"/><text x="294" y="125" text-anchor="middle" font-size="11" font-weight="700" fill="#9fe8ff">Staged</text></g>
+          <g class="r3"><rect x="360" y="96" width="96" height="48" rx="10" fill="#1a2143" stroke="#28e0a8"/><text x="408" y="125" text-anchor="middle" font-size="11" font-weight="700" fill="#a3f5db">Committed</text></g>
+          <g class="r1"><path d="M116 120h14" stroke="#9aa3d0" stroke-width="2"/></g>
+          <g class="r2"><path d="M230 120h14" stroke="#9aa3d0" stroke-width="2"/></g>
+          <g class="r3"><path d="M344 120h14" stroke="#9aa3d0" stroke-width="2"/></g>
+          <text class="u1" x="240" y="200" text-anchor="middle" font-size="12" fill="#9aa3d0">Every file's journey: Untracked → Modified → Staged → Committed</text>
         </svg>
       </div>
-      <h2>Staging Area</h2>
+      <h2>The File Lifecycle</h2>
     </section>
 
+    <!-- 5. git add -->
     <section class="scene">
       <div class="art">
         <svg viewBox="0 0 480 240">
-          <g class="r0"><rect x="70" y="80" width="120" height="90" rx="12" fill="#1a2143" stroke="#ffb340"/><text x="130" y="128" text-anchor="middle" font-size="11" font-weight="700" fill="#ffdda3">Staging</text></g>
-          <g class="r1"><rect x="290" y="80" width="120" height="90" rx="12" fill="#1a2143" stroke="#28e0a8"/><text x="350" y="122" text-anchor="middle" font-size="11" font-weight="700" fill="#a3f5db">Repository</text><text x="350" y="140" text-anchor="middle" font-size="10" fill="#9aa3d0">(.git)</text></g>
-          <g style="clip-path:inset(0 34% 0 27%)"><rect class="mv1" x="196" y="112" width="20" height="16" rx="3" fill="#28e0a8"/></g>
-          <text class="r2" x="240" y="102" text-anchor="middle" font-size="12" fill="#9fe8ff" font-family="monospace">git commit</text>
-          <text class="u1" x="240" y="206" text-anchor="middle" font-size="12" fill="#9aa3d0">Repository: git commit saves the staged snapshot permanently into history</text>
+          <g class="r0"><rect x="60" y="80" width="120" height="90" rx="12" fill="#1a2143" stroke="#7c5cff"/><text x="120" y="130" text-anchor="middle" font-size="11" font-weight="700" fill="#c9bcff">Working</text></g>
+          <g class="r1"><rect x="300" y="80" width="120" height="90" rx="12" fill="#1a2143" stroke="#ffb340"/><text x="360" y="124" text-anchor="middle" font-size="11" font-weight="700" fill="#ffdda3">Staging</text><text x="360" y="140" text-anchor="middle" font-size="9" fill="#9aa3d0">(a packed crate)</text></g>
+          <g style="clip-path:inset(0 30% 0 30%)"><rect class="mv1" x="196" y="112" width="22" height="18" rx="3" fill="#28e0a8"/><rect class="mv2" x="196" y="112" width="22" height="18" rx="3" fill="#00d4ff"/></g>
+          <text class="r2" x="240" y="100" text-anchor="middle" font-size="12" fill="#9fe8ff" font-family="monospace">git add</text>
+          <text class="u1" x="240" y="206" text-anchor="middle" font-size="12" fill="#9aa3d0">git add packs the changes you choose into the Staging Area</text>
         </svg>
       </div>
-      <h2>Repository</h2>
+      <h2>git add → Staging</h2>
     </section>
 
+    <!-- 6. git commit -->
     <section class="scene">
       <div class="art">
         <svg viewBox="0 0 480 240">
-          <g class="r0"><rect x="14" y="86" width="120" height="70" rx="10" fill="#1a2143" stroke="#7c5cff"/><text x="74" y="118" text-anchor="middle" font-size="11" fill="#c9bcff">edit files</text><text x="74" y="134" text-anchor="middle" font-size="9" fill="#9aa3d0">Working Dir</text></g>
-          <g class="r1"><rect x="180" y="86" width="120" height="70" rx="10" fill="#1a2143" stroke="#ffb340"/><text x="240" y="118" text-anchor="middle" font-size="11" fill="#ffdda3">git add</text><text x="240" y="134" text-anchor="middle" font-size="9" fill="#9aa3d0">Staging</text></g>
-          <g class="r2"><rect x="346" y="86" width="120" height="70" rx="10" fill="#1a2143" stroke="#28e0a8"/><text x="406" y="118" text-anchor="middle" font-size="11" fill="#a3f5db">git commit</text><text x="406" y="134" text-anchor="middle" font-size="9" fill="#9aa3d0">Repository</text></g>
-          <g class="r1"><path d="M138 121 h38" stroke="#9aa3d0" stroke-width="2"/><path d="M176 121l-6 -4 M176 121l-6 4" stroke="#9aa3d0" stroke-width="2" fill="none"/></g>
-          <g class="r2"><path d="M304 121 h38" stroke="#9aa3d0" stroke-width="2"/><path d="M342 121l-6 -4 M342 121l-6 4" stroke="#9aa3d0" stroke-width="2" fill="none"/></g>
-          <text class="u1" x="240" y="196" text-anchor="middle" font-size="12" fill="#9aa3d0">The flow: edit → git add (stage) → git commit (save to repository)</text>
+          <g class="r0"><rect x="60" y="80" width="120" height="90" rx="12" fill="#1a2143" stroke="#ffb340"/><text x="120" y="130" text-anchor="middle" font-size="11" font-weight="700" fill="#ffdda3">Staging</text></g>
+          <g class="r1"><rect x="300" y="70" width="130" height="110" rx="12" fill="#122" stroke="#28e0a8"/><text x="365" y="112" text-anchor="middle" font-size="11" font-weight="700" fill="#a3f5db">Repository</text><text x="365" y="130" text-anchor="middle" font-size="9" fill="#9aa3d0">(.git)</text><circle cx="340" cy="152" r="6" fill="#7c5cff"/><circle cx="360" cy="152" r="6" fill="#00d4ff"/><circle cx="380" cy="152" r="6" fill="#28e0a8"/></g>
+          <g style="clip-path:inset(0 32% 0 30%)"><rect class="mv1" x="196" y="112" width="22" height="18" rx="3" fill="#28e0a8"/></g>
+          <text class="r2" x="240" y="100" text-anchor="middle" font-size="12" fill="#9fe8ff" font-family="monospace">git commit</text>
+          <text class="u1" x="240" y="206" text-anchor="middle" font-size="12" fill="#9aa3d0">git commit stores the staged snapshot permanently as a new commit</text>
         </svg>
       </div>
-      <h2>The Flow</h2>
+      <h2>git commit → Repository</h2>
     </section>
 
+    <!-- 7. Inside a commit -->
     <section class="scene">
       <div class="art">
         <svg viewBox="0 0 480 240">
-          <g class="bob" transform="translate(214,14)"><rect x="10" y="8" width="48" height="38" rx="13" fill="#6a4fee"/><rect x="16" y="15" width="36" height="24" rx="9" fill="#0e1330"/><circle cx="27" cy="27" r="4" fill="#00d4ff"/><circle cx="41" cy="27" r="4" fill="#00d4ff"/><path d="M28 34q6 5 12 0" stroke="#28e0a8" stroke-width="2.2" fill="none" stroke-linecap="round"/></g>
-          <g class="r0"><rect x="40" y="78" width="400" height="30" rx="8" fill="#1a2143" stroke="#7c5cff"/><text x="240" y="97" text-anchor="middle" font-size="12" fill="#eef1ff">Three areas: Working Directory, Staging Area, Repository</text></g>
-          <g class="r1"><rect x="40" y="116" width="400" height="30" rx="8" fill="#1a2143" stroke="#ffb340"/><text x="240" y="135" text-anchor="middle" font-size="12" fill="#eef1ff">git add moves changes to staging; git commit saves them to the repo</text></g>
-          <g class="r2"><rect x="40" y="154" width="400" height="30" rx="8" fill="#1a2143" stroke="#28e0a8"/><text x="240" y="173" text-anchor="middle" font-size="12" fill="#eef1ff">The repository (.git) holds all your commits — your full history</text></g>
+          <g class="r0"><rect x="110" y="40" width="260" height="160" rx="14" fill="#1a2143" stroke="#28e0a8" stroke-width="2"/></g>
+          <text class="r1" x="130" y="74" font-size="13" fill="#a3f5db" font-family="monospace">commit a1b2c3d</text>
+          <text class="r1" x="130" y="102" font-size="12" fill="#eef1ff">Author: Shivank</text>
+          <text class="r2" x="130" y="128" font-size="12" fill="#eef1ff">Message: "add login page"</text>
+          <text class="r3" x="130" y="154" font-size="12" fill="#ffdda3">Snapshot of all files</text>
+          <text class="r3" x="130" y="180" font-size="12" fill="#9aa3d0">Parent: 9f8e7d  ← previous commit</text>
+          <text class="u1" x="240" y="222" text-anchor="middle" font-size="12" fill="#9aa3d0">Each commit links to the one before it — that chain is your history</text>
+        </svg>
+      </div>
+      <h2>Inside a Commit</h2>
+    </section>
+
+    <!-- 8. The .git folder -->
+    <section class="scene">
+      <div class="art">
+        <svg viewBox="0 0 480 240">
+          <g class="r0"><rect x="120" y="46" width="240" height="150" rx="14" fill="#122" stroke="#28e0a8" stroke-width="2"/><text x="240" y="70" text-anchor="middle" font-size="12" font-weight="700" fill="#a3f5db">.git  (the repository)</text></g>
+          <g class="r1"><rect x="140" y="86" width="200" height="26" rx="6" fill="#0e1330"/><text x="150" y="103" font-size="11" fill="#c9bcff" font-family="monospace">commits — every snapshot</text></g>
+          <g class="r2"><rect x="140" y="118" width="200" height="26" rx="6" fill="#0e1330"/><text x="150" y="135" font-size="11" fill="#9fe8ff" font-family="monospace">branches & tags</text></g>
+          <g class="r3"><rect x="140" y="150" width="200" height="26" rx="6" fill="#0e1330"/><text x="150" y="167" font-size="11" fill="#ffdda3" font-family="monospace">config & history</text></g>
+          <text class="u1" x="240" y="218" text-anchor="middle" font-size="12" fill="#9aa3d0">The hidden .git folder IS the repository — it remembers everything</text>
+        </svg>
+      </div>
+      <h2>The .git Folder</h2>
+    </section>
+
+    <!-- 9. Local vs Remote -->
+    <section class="scene">
+      <div class="art">
+        <svg viewBox="0 0 480 240">
+          <g class="r0"><rect x="40" y="70" width="150" height="110" rx="12" fill="#1a2143" stroke="#7c5cff" stroke-width="2"/><text x="115" y="94" text-anchor="middle" font-size="11" font-weight="700" fill="#c9bcff">Local repo</text><text x="115" y="110" text-anchor="middle" font-size="9" fill="#9aa3d0">on your computer</text><circle cx="95" cy="140" r="6" fill="#7c5cff"/><circle cx="115" cy="140" r="6" fill="#00d4ff"/><circle cx="135" cy="140" r="6" fill="#28e0a8"/></g>
+          <g class="r1"><path d="M50 62 q10 -20 30 -20 q6 -16 24 -12 q14 -10 26 6 q18 -2 16 16" fill="none" stroke="#00d4ff" stroke-width="2" transform="translate(250,30)"/><rect x="300" y="70" width="150" height="110" rx="12" fill="#122" stroke="#28e0a8" stroke-width="2"/><text x="375" y="94" text-anchor="middle" font-size="11" font-weight="700" fill="#a3f5db">Remote repo</text><text x="375" y="110" text-anchor="middle" font-size="9" fill="#9aa3d0">GitHub (internet)</text><circle cx="355" cy="140" r="6" fill="#7c5cff"/><circle cx="375" cy="140" r="6" fill="#00d4ff"/><circle cx="395" cy="140" r="6" fill="#28e0a8"/></g>
+          <text class="u1" x="240" y="210" text-anchor="middle" font-size="12" fill="#9aa3d0">A repo can live locally on your computer and remotely on GitHub</text>
+        </svg>
+      </div>
+      <h2>Local vs Remote</h2>
+    </section>
+
+    <!-- 10. push / pull / clone -->
+    <section class="scene">
+      <div class="art">
+        <svg viewBox="0 0 480 240">
+          <g class="r0"><rect x="30" y="80" width="140" height="90" rx="12" fill="#1a2143" stroke="#7c5cff"/><text x="100" y="130" text-anchor="middle" font-size="11" font-weight="700" fill="#c9bcff">Local</text></g>
+          <g class="r1"><rect x="310" y="80" width="140" height="90" rx="12" fill="#122" stroke="#28e0a8"/><text x="380" y="130" text-anchor="middle" font-size="11" font-weight="700" fill="#a3f5db">Remote (GitHub)</text></g>
+          <g class="r2"><path d="M172 108 h136" stroke="#9fe8ff" stroke-width="2"/><path d="M308 108l-7 -4 M308 108l-7 4" stroke="#9fe8ff" stroke-width="2" fill="none"/><text x="240" y="100" text-anchor="middle" font-size="11" fill="#9fe8ff" font-family="monospace">git push</text></g>
+          <g class="r3"><path d="M308 146 h-136" stroke="#ffdda3" stroke-width="2"/><path d="M172 146l7 -4 M172 146l7 4" stroke="#ffdda3" stroke-width="2" fill="none"/><text x="240" y="166" text-anchor="middle" font-size="11" fill="#ffdda3" font-family="monospace">git pull</text></g>
+          <text class="u1" x="240" y="206" text-anchor="middle" font-size="12" fill="#9aa3d0">push sends up, pull brings down, clone copies a repo the first time</text>
+        </svg>
+      </div>
+      <h2>push · pull · clone</h2>
+    </section>
+
+    <!-- 11. Recap -->
+    <section class="scene">
+      <div class="art">
+        <svg viewBox="0 0 480 240">
+          <g class="bob" transform="translate(214,10)"><rect x="10" y="8" width="48" height="38" rx="13" fill="#6a4fee"/><rect x="16" y="15" width="36" height="24" rx="9" fill="#0e1330"/><circle cx="27" cy="27" r="4" fill="#00d4ff"/><circle cx="41" cy="27" r="4" fill="#00d4ff"/><path d="M28 34q6 5 12 0" stroke="#28e0a8" stroke-width="2.2" fill="none" stroke-linecap="round"/></g>
+          <g class="r0"><rect x="40" y="72" width="400" height="28" rx="8" fill="#1a2143" stroke="#7c5cff"/><text x="240" y="90" text-anchor="middle" font-size="12" fill="#eef1ff">3 areas: Working Directory → Staging → Repository</text></g>
+          <g class="r1"><rect x="40" y="108" width="400" height="28" rx="8" fill="#1a2143" stroke="#ffb340"/><text x="240" y="126" text-anchor="middle" font-size="12" fill="#eef1ff">git add stages · git commit saves a snapshot to .git</text></g>
+          <g class="r2"><rect x="40" y="144" width="400" height="28" rx="8" fill="#1a2143" stroke="#28e0a8"/><text x="240" y="162" text-anchor="middle" font-size="12" fill="#eef1ff">Repo lives local + remote · push / pull / clone connect them</text></g>
         </svg>
       </div>
       <h2>Recap</h2>
@@ -157,7 +236,7 @@
 
 <div class="caption">
   <svg class="navatar" viewBox="0 0 60 60"><rect x="14" y="16" width="32" height="26" rx="9" fill="#6a4fee"/><rect x="19" y="21" width="22" height="16" rx="6" fill="#0e1330"/><circle class="eye" cx="26" cy="29" r="3" fill="#00d4ff"/><circle class="eye" cx="34" cy="29" r="3" fill="#00d4ff"/><line x1="30" y1="16" x2="30" y2="10" stroke="#00d4ff" stroke-width="2.4" stroke-linecap="round"/><circle cx="30" cy="8" r="2.6" fill="#00d4ff"/></svg>
-  <div class="ctext" id="ctext">Git Repository Concepts — where files live as they move into history.</div>
+  <div class="ctext" id="ctext">Git Repository Concepts — where your files live as they move into history.</div>
 </div>
 
 <div class="controls">
@@ -179,17 +258,22 @@ document.body.classList.remove('no-js');
   for(var i=0;i<50;i++){h+='<i style="left:'+Math.random()*100+'%;top:'+Math.random()*100+'%;animation-delay:'+(-Math.random()*4)+'s"></i>';}
   sf.innerHTML=h;
   var scenes=[].slice.call(document.querySelectorAll('.scene'));
-  var names=['Intro','Three areas','Working directory','Staging area','Repository','The flow','Recap'];
+  var names=['Intro','What is a repo','Three areas','Working directory','File lifecycle','git add','git commit','Inside a commit','.git folder','Local vs remote','push / pull / clone','Recap'];
   var caps=[
-    "Git Repository Concepts — where files live as they move into history.",
+    "Git Repository Concepts — where your files live as they move into history.",
+    "A repository is your whole project plus its entire history — every version, saved by Git.",
     "A Git project has three areas: the Working Directory, the Staging Area, and the Repository.",
-    "Working Directory: the actual files on your computer that you create and edit.",
-    "Staging Area: with git add, you choose exactly which changes go into the next commit.",
-    "Repository: with git commit, the staged snapshot is saved permanently into your history (the .git folder).",
-    "So the flow is: edit your files, git add to stage them, then git commit to save them to the repository.",
-    "Three areas, two steps — add then commit — and the .git repository keeps your full history."
+    "Working Directory: the real files on your computer. Git sees each as tracked, modified, or untracked.",
+    "Every file moves through a lifecycle: Untracked → Modified → Staged → Committed.",
+    "git add moves the changes you choose into the Staging Area — like packing a crate that's ready to ship.",
+    "git commit stores that crate permanently in the repository as one snapshot — a commit.",
+    "Each commit carries an ID, your message, the author, and a link to the previous commit. That chain is your history.",
+    "The repository itself is the hidden .git folder — it holds every commit, so you can return to any version.",
+    "A repository can live in two places: locally on your computer, and remotely on a server like GitHub.",
+    "git push sends local commits up to the remote, git pull brings remote changes down, and git clone copies a repo the first time.",
+    "Three areas, a simple lifecycle, and a .git store that remembers everything — local and remote. That's a Git repository."
   ];
-  var durations=[5000,9000,8000,9000,9000,9000,7000];
+  var durations=[5000,9000,8000,9000,8500,8000,8000,9500,8500,8500,9500,8000];
   var timeline=document.getElementById('timeline');
   scenes.forEach(function(_,i){ var d=document.createElement('div'); d.className='seg'; d.dataset.i=i; d.innerHTML='<div class="fill"></div>'; timeline.appendChild(d); });
   var segs=[].slice.call(document.querySelectorAll('.seg'));
