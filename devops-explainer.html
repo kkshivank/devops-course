@@ -128,9 +128,23 @@
   .progress-note{text-align:center;color:var(--muted);margin:10px 0 40px;font-size:15px}
 
   @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+  /* course-wide fixes */
+  .startmod{display:inline-flex;align-items:center;gap:8px;margin-top:14px;text-decoration:none;font-weight:700;font-size:14px;color:#eef1ff;background:rgba(124,92,255,.18);border:1px solid rgba(124,92,255,.45);padding:9px 16px;border-radius:12px;transition:background .2s ease}
+  .startmod:hover,.startmod:focus-visible{background:rgba(124,92,255,.32);outline:none}
+  .startmod svg{width:16px;height:16px}
+
+  svg .glow{transform-box:fill-box;transform-origin:center}
+  .cnav{margin-left:auto;display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+  .cnav a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:#c9d1ff;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);padding:6px 12px;border-radius:100px;font:700 12px/1.2 'Segoe UI',system-ui,-apple-system,sans-serif;transition:background .2s ease,color .2s ease}
+  .cnav a:hover,.cnav a:focus-visible{background:rgba(124,92,255,.28);color:#fff;outline:none}
+  .cnav svg{width:14px;height:14px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+  .cnav.fixed{position:fixed;top:12px;right:14px;z-index:60}
+  @media(max-width:640px){.cnav a{padding:5px 9px;font-size:11px}.cnav .lab{display:none}}
 </style>
 </head>
 <body>
+<nav class="cnav fixed" aria-label="Course navigation"><a href="index.html" title="All modules"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span class="lab">All modules</span></a></nav>
 <div class="aurora"><span></span><span></span><span></span></div>
 
 <header>
@@ -165,7 +179,7 @@
   <p>A complete roadmap of everything you'll learn — explained simply, so you actually know <em>why</em> each topic matters before you dive in.</p>
   <div class="stats">
     <div class="stat"><div class="n">6</div><div class="l">Modules</div></div>
-    <div class="stat"><div class="n">45</div><div class="l">CI Hours</div></div>
+    <div class="stat"><div class="n">45</div><div class="l">Hours</div></div>
     <div class="stat"><div class="n">7+</div><div class="l">Tools</div></div>
     <div class="stat"><div class="n">High</div><div class="l">Job Demand</div></div>
   </div>
@@ -207,6 +221,7 @@
         <div class="topic"><div class="t"><svg class="ic" viewBox="0 0 24 24"><path d="M4 22V4a2 2 0 0 1 2-2h11l-3 4 3 4H6"/></svg> Outcome</div><div class="d">The real-world capabilities you'll have as a DevOps beginner.</div></div>
       </div>
       <div class="why"><svg class="ic" viewBox="0 0 24 24"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1V18h6v-1.2c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2z"/></svg><span><b>Why it matters:</b> Knowing the destination makes the whole journey click into place.</span></div>
+      <a class="startmod" href="module1-introduction.html">Start Module 1<svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
 
     <div class="module m2">
@@ -226,6 +241,7 @@
         <div class="topic"><div class="t"><svg class="ic" viewBox="0 0 24 24"><path d="M20.6 8.5 12 3 3.4 8.5"/><path d="M12 22V12"/><path d="M3 8v8l9 6 9-6V8"/></svg> Goals &amp; Benefits</div><div class="d">Faster releases, fewer failures, happier teams.</div></div>
       </div>
       <div class="why"><svg class="ic" viewBox="0 0 24 24"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1V18h6v-1.2c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2z"/></svg><span><b>Why it matters:</b> This is the big-picture chapter — every tool you learn later fits somewhere in this lifecycle.</span></div>
+      <a class="startmod" href="module2-devops-lifecycle.html">Start Module 2<svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
 
     <div class="module m3">
@@ -245,6 +261,7 @@
         <div class="topic"><div class="t"><svg class="ic" viewBox="0 0 24 24"><path d="M4 4h6l2 2h8v12H4z"/></svg> Repository Management</div><div class="d">Keeping your project organized and shareable.</div></div>
       </div>
       <div class="why"><svg class="ic" viewBox="0 0 24 24"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1V18h6v-1.2c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2z"/></svg><span><b>Why it matters:</b> Git is used by virtually every software team on earth. Master this and you speak the industry's language.</span></div>
+      <a class="startmod" href="module3-1-version-control-basics.html">Start Module 3<svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
 
     <div class="module m4">
@@ -264,6 +281,7 @@
         <div class="topic"><div class="t"><svg class="ic" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> Continuous Feedback</div><div class="d">Instant feedback to developers in the CI process.</div></div>
       </div>
       <div class="why"><svg class="ic" viewBox="0 0 24 24"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1V18h6v-1.2c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2z"/></svg><span><b>Why it matters:</b> This is where DevOps starts to feel like magic — the machine does the boring, repetitive work for you.</span></div>
+      <a class="startmod" href="module4-1-continuous-integration-basics.html">Start Module 4<svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
 
     <div class="module m5">
@@ -283,6 +301,7 @@
         <div class="topic"><div class="t"><svg class="ic" viewBox="0 0 24 24"><path d="m4 17 6-6-6-6"/><path d="M12 19h8"/></svg> Docker Commands</div><div class="d">Build, run, and manage containers hands-on.</div></div>
       </div>
       <div class="why"><svg class="ic" viewBox="0 0 24 24"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1V18h6v-1.2c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2z"/></svg><span><b>Why it matters:</b> "It works on my machine" is a famous developer nightmare. Docker ends it for good.</span></div>
+      <a class="startmod" href="module5-1-continuous-delivery-deployment.html">Start Module 5<svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
 
     <div class="module m6">
@@ -302,6 +321,7 @@
         <div class="topic"><div class="t"><svg class="ic" viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/><circle cx="12" cy="12" r="4"/><path d="m12 12 3-3"/></svg> Performance Monitoring</div><div class="d">Keep systems fast, healthy, and observable.</div></div>
       </div>
       <div class="why"><svg class="ic" viewBox="0 0 24 24"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1V18h6v-1.2c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2z"/></svg><span><b>Why it matters:</b> This is what powers Netflix, Uber &amp; Spotify. Finish here and you can honestly call yourself a DevOps engineer.</span></div>
+      <a class="startmod" href="module6-1-kubernetes-orchestration.html">Start Module 6<svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
 
   </div>

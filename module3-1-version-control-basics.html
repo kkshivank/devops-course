@@ -104,6 +104,15 @@
     .lbl{display:none}.timeline{gap:3px}
   }
   @media(max-width:400px){.btns{gap:6px}button svg{width:16px;height:16px}.play span{display:none}.play{padding:10px 14px}}
+
+  /* course-wide fixes */
+  svg .glow{transform-box:fill-box;transform-origin:center}
+  .cnav{margin-left:auto;display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+  .cnav a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:#c9d1ff;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);padding:6px 12px;border-radius:100px;font:700 12px/1.2 'Segoe UI',system-ui,-apple-system,sans-serif;transition:background .2s ease,color .2s ease}
+  .cnav a:hover,.cnav a:focus-visible{background:rgba(124,92,255,.28);color:#fff;outline:none}
+  .cnav svg{width:14px;height:14px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+  .cnav.fixed{position:fixed;top:12px;right:14px;z-index:60}
+  @media(max-width:640px){.cnav a{padding:5px 9px;font-size:11px}.cnav .lab{display:none}}
 </style>
 </head>
 <body class="no-js">
@@ -116,6 +125,7 @@
     MODULE 3 · 3.1
   </span>
   <div class="t"><b>Version Control Basics</b></div>
+  <nav class="cnav" aria-label="Course navigation"><a href="module2-devops-lifecycle.html" title="Previous: 2 DevOps &amp; Its Lifecycle"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg><span class="lab">2</span></a><a href="index.html" title="All modules"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span class="lab">All modules</span></a><a href="module3-2-git-fundamentals.html" title="Next: 3.2 Git Fundamentals"><span class="lab">3.2</span><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></a></nav>
 </div>
 
 <div class="stage-wrap">
@@ -125,13 +135,13 @@
       <div class="art">
         <svg viewBox="0 0 480 260">
           <circle class="glow" cx="240" cy="122" r="66" fill="#7c5cff" opacity=".3"/>
-          <g class="bob" transform="translate(202,60)">
+          <g transform="translate(202,60)"><g class="bob">
             <rect x="10" y="8" width="60" height="46" rx="16" fill="#6a4fee"/>
             <rect x="17" y="16" width="46" height="30" rx="11" fill="#0e1330"/>
             <circle class="eye" cx="30" cy="31" r="5" fill="#00d4ff"/><circle class="eye" cx="50" cy="31" r="5" fill="#00d4ff"/>
             <path d="M32 39q8 6 16 0" stroke="#28e0a8" stroke-width="2.6" fill="none" stroke-linecap="round"/>
             <line x1="40" y1="8" x2="40" y2="0" stroke="#00d4ff" stroke-width="3" stroke-linecap="round"/><circle cx="40" cy="-3" r="4" fill="#00d4ff" class="glow"/>
-          </g>
+          </g></g>
           <text class="u0" x="240" y="170" text-anchor="middle" font-size="26" font-weight="800" fill="#eef1ff">Version Control Basics</text>
           <text class="u0" x="240" y="196" text-anchor="middle" font-size="14" fill="#9aa3d0">Why we need it, and the two main types</text>
         </svg>
@@ -146,12 +156,12 @@
           <g class="r1"><rect x="72" y="74" width="170" height="26" rx="6" fill="#1a2143" stroke="var(--line)"/><text x="86" y="91" font-size="12" fill="#eef1ff">report_final.doc</text></g>
           <g class="r2"><rect x="84" y="108" width="196" height="26" rx="6" fill="#1a2143" stroke="var(--line)"/><text x="98" y="125" font-size="12" fill="#eef1ff">report_final_v2.doc</text></g>
           <g class="r3"><rect x="96" y="142" width="220" height="26" rx="6" fill="#1a2143" stroke="#ff5da2"/><text x="110" y="159" font-size="12" fill="#ffb3d4">report_FINAL_final.doc</text></g>
-          <g class="r4 bob" transform="translate(360,120)">
+          <g transform="translate(360,120)"><g class="r4 bob">
             <circle cx="0" cy="0" r="26" fill="rgba(255,93,162,.14)" stroke="#ff5da2" stroke-width="2"/>
             <line x1="-8" y1="-6" x2="-3" y2="-3" stroke="#0e1330" stroke-width="2.4" stroke-linecap="round"/><line x1="8" y1="-6" x2="3" y2="-3" stroke="#0e1330" stroke-width="2.4" stroke-linecap="round"/>
             <path d="M-7 8 q7 -5 14 0" stroke="#0e1330" stroke-width="2.2" fill="none" stroke-linecap="round"/>
             <text x="26" y="-16" font-size="22" font-weight="900" fill="#ff5da2">?</text>
-          </g>
+          </g></g>
           <text class="u1" x="240" y="206" text-anchor="middle" font-size="12" fill="#9aa3d0">Saving copies by hand gets messy fast — which one is the real final?</text>
         </svg>
       </div>
@@ -263,10 +273,10 @@
     <section class="scene">
       <div class="art">
         <svg viewBox="0 0 480 240">
-          <g class="bob" transform="translate(214,14)">
+          <g transform="translate(214,14)"><g class="bob">
             <rect x="10" y="8" width="48" height="38" rx="13" fill="#6a4fee"/><rect x="16" y="15" width="36" height="24" rx="9" fill="#0e1330"/>
             <circle cx="27" cy="27" r="4" fill="#00d4ff"/><circle cx="41" cy="27" r="4" fill="#00d4ff"/><path d="M28 34q6 5 12 0" stroke="#28e0a8" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-          </g>
+          </g></g>
           <g class="r0"><rect x="40" y="78" width="400" height="30" rx="8" fill="#1a2143" stroke="#7c5cff"/><text x="240" y="97" text-anchor="middle" font-size="12" fill="#eef1ff">Version control tracks every change and lets you go back</text></g>
           <g class="r1"><rect x="40" y="116" width="400" height="30" rx="8" fill="#1a2143" stroke="#00d4ff"/><text x="240" y="135" text-anchor="middle" font-size="12" fill="#eef1ff">Two types: Centralized (SVN) and Distributed (Git)</text></g>
           <g class="r2"><rect x="40" y="154" width="400" height="30" rx="8" fill="#1a2143" stroke="#28e0a8"/><text x="240" y="173" text-anchor="middle" font-size="12" fill="#eef1ff">Git is distributed, works offline — today's standard</text></g>

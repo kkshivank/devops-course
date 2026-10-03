@@ -84,6 +84,15 @@
     #mode-fa .stage{min-height:0}}
   @media(max-width:640px){.top{padding:10px 14px;gap:8px}.top .t{font-size:13px}.stage-wrap{padding:4px 10px}.stage{border-radius:14px}.zone{width:104px}.caption{padding:2px 12px;min-height:44px}.ctext{padding:8px 12px}.controls{padding:6px 12px 12px}.btns{gap:8px}.btns button{padding:9px 12px;font-size:13px}.play{padding:10px 16px}.lbl{display:none}.timeline{gap:3px}}
   #mode-fa .stage{padding-top:60px}
+
+  /* course-wide fixes */
+  svg .glow{transform-box:fill-box;transform-origin:center}
+  .cnav{margin-left:auto;display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+  .cnav a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:#c9d1ff;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);padding:6px 12px;border-radius:100px;font:700 12px/1.2 'Segoe UI',system-ui,-apple-system,sans-serif;transition:background .2s ease,color .2s ease}
+  .cnav a:hover,.cnav a:focus-visible{background:rgba(124,92,255,.28);color:#fff;outline:none}
+  .cnav svg{width:14px;height:14px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+  .cnav.fixed{position:fixed;top:12px;right:14px;z-index:60}
+  @media(max-width:640px){.cnav a{padding:5px 9px;font-size:11px}.cnav .lab{display:none}}
 </style>
 </head>
 <body>
@@ -93,6 +102,7 @@
 <div class="top">
   <span class="chip"><svg class="ic" viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 8-8 8 8 0 0 1 7 4M20 12a8 8 0 0 1-8 8 8 8 0 0 1-7-4"/><path d="M16 8h3V5M8 16H5v3"/></svg> MODULE 6 · 6.4</span>
   <div class="t"><b>Grafana Dashboards</b></div>
+  <nav class="cnav" aria-label="Course navigation"><a href="module6-3-prometheus-metrics.html" title="Previous: 6.3 Prometheus &amp; Metrics"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg><span class="lab">6.3</span></a><a href="index.html" title="All modules"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span class="lab">All modules</span></a><a href="module6-5-logging-alerting.html" title="Next: 6.5 Logging &amp; Alerting"><span class="lab">6.5</span><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></a></nav>
 </div>
 
 <!-- ============ MODE: INTERACTIVE ============ -->

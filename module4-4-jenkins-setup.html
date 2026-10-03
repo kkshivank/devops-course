@@ -86,6 +86,15 @@
     #mode-sl .scene{position:relative;inset:auto;display:none;transform:none;min-height:52vh}#mode-sl .scene.active{display:flex}#mode-sl .scene h2{font-size:20px}#mode-sl .scene .art svg{max-height:250px}
     #mode-fa .stage{min-height:0}}
   @media(max-width:640px){.top{padding:10px 14px;gap:8px}.top .t{font-size:13px}.stage-wrap{padding:4px 10px}.stage{border-radius:14px}.zone{width:104px}.caption{padding:2px 12px;min-height:44px}.ctext{padding:8px 12px}.controls{padding:6px 12px 12px}.btns{gap:8px}.btns button{padding:9px 12px;font-size:13px}.play{padding:10px 16px}.lbl{display:none}.timeline{gap:3px}}
+
+  /* course-wide fixes */
+  svg .glow{transform-box:fill-box;transform-origin:center}
+  .cnav{margin-left:auto;display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+  .cnav a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:#c9d1ff;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);padding:6px 12px;border-radius:100px;font:700 12px/1.2 'Segoe UI',system-ui,-apple-system,sans-serif;transition:background .2s ease,color .2s ease}
+  .cnav a:hover,.cnav a:focus-visible{background:rgba(124,92,255,.28);color:#fff;outline:none}
+  .cnav svg{width:14px;height:14px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+  .cnav.fixed{position:fixed;top:12px;right:14px;z-index:60}
+  @media(max-width:640px){.cnav a{padding:5px 9px;font-size:11px}.cnav .lab{display:none}}
 </style>
 </head>
 <body>
@@ -95,6 +104,7 @@
 <div class="top">
   <span class="chip"><svg class="ic" viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 8-8 8 8 0 0 1 7 4M20 12a8 8 0 0 1-8 8 8 8 0 0 1-7-4"/><path d="M16 8h3V5M8 16H5v3"/></svg> MODULE 4 · 4.4</span>
   <div class="t"><b>Jenkins Setup</b></div>
+  <nav class="cnav" aria-label="Course navigation"><a href="module4-3-introduction-to-jenkins.html" title="Previous: 4.3 Introduction to Jenkins"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg><span class="lab">4.3</span></a><a href="index.html" title="All modules"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span class="lab">All modules</span></a><a href="module4-5-jenkinsfile.html" title="Next: 4.5 Jenkinsfile"><span class="lab">4.5</span><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></a></nav>
 </div>
 
 <!-- ============ MODE: INTERACTIVE ============ -->
@@ -164,13 +174,13 @@
     <div class="stage">
       <section class="scene active"><div class="art"><svg viewBox="0 0 480 260">
         <circle class="glow" cx="240" cy="122" r="66" fill="#7c5cff" opacity=".3"/>
-        <g class="bob" transform="translate(202,50)"><rect x="4" y="4" width="72" height="52" rx="10" fill="#0e1330" stroke="#6a4fee" stroke-width="2"/><rect x="12" y="12" width="30" height="4" rx="2" fill="#00d4ff"/><rect x="12" y="20" width="50" height="4" rx="2" fill="#3a6ea5"/><rect x="12" y="28" width="40" height="4" rx="2" fill="#3a6ea5"/></g>
+        <g transform="translate(202,50)"><g class="bob"><rect x="4" y="4" width="72" height="52" rx="10" fill="#0e1330" stroke="#6a4fee" stroke-width="2"/><rect x="12" y="12" width="30" height="4" rx="2" fill="#00d4ff"/><rect x="12" y="20" width="50" height="4" rx="2" fill="#3a6ea5"/><rect x="12" y="28" width="40" height="4" rx="2" fill="#3a6ea5"/></g></g>
         <text class="u0" x="240" y="170" text-anchor="middle" font-size="26" font-weight="800" fill="#eef1ff">Jenkins Setup</text>
         <text class="u0" x="240" y="196" text-anchor="middle" font-size="14" fill="#9aa3d0">From install to your first successful build</text>
       </svg></div><h2 style="opacity:0"></h2></section>
 
       <section class="scene"><div class="art"><svg viewBox="0 0 480 240">
-        <g class="r0"><rect x="140" y="60" width="200" height="40" rx="8" fill="#1a2143" stroke="#7c5cff"/><text x="240" y="85" text-anchor="middle" font-size="12" fill="#c9bcff" font-family="monospace">java -jar jenkins.war</text></g>
+        <g class="u0"><rect x="165" y="18" width="150" height="26" rx="13" fill="#3a2c12" stroke="#ffb340"/><text x="240" y="35" text-anchor="middle" font-size="11" fill="#ffd591">Needs Java 21 or 25</text></g><g class="r0"><rect x="140" y="60" width="200" height="40" rx="8" fill="#1a2143" stroke="#7c5cff"/><text x="240" y="85" text-anchor="middle" font-size="12" fill="#c9bcff" font-family="monospace">java -jar jenkins.war</text></g>
         <g class="r1"><path d="M240 100v25" stroke="#9aa3d0" stroke-width="2"/></g>
         <g class="r2"><rect x="150" y="128" width="180" height="70" rx="10" fill="#0e2620" stroke="#28e0a8"/><text x="240" y="155" text-anchor="middle" font-size="11" fill="#a3f5db">Jenkins running at</text><text x="240" y="175" text-anchor="middle" font-size="11" fill="#a3f5db" font-family="monospace">localhost:8080</text></g>
         <text class="u1" x="240" y="220" text-anchor="middle" font-size="12" fill="#9aa3d0">Or install it as a service (brew, apt, Windows installer) so it starts automatically</text>
@@ -282,7 +292,7 @@
   var slNames=['Intro','Install','Unlock','Plugins','Admin User','Create Job','Configure','First Build','Recap'];
   var slCaps=[
     "Jenkins Setup — from install to your first successful build.",
-    "Install Jenkins (java -jar jenkins.war, or as a service via brew/apt/installer) and open localhost:8080 in your browser.",
+    "Jenkins runs on Java — current releases need Java 21 or 25. Then start it with java -jar jenkins.war, or install it as a service (brew install jenkins-lts, apt, or the Windows installer), and open localhost:8080.",
     "The first screen asks for an admin password — find it in the terminal output or the initialAdminPassword file, and paste it in.",
     "Choose 'Install suggested plugins' — this covers Git integration, pipelines, and most things you'll need to start.",
     "Create your first admin user with a username and password — this is what you'll log in with from now on.",
@@ -303,7 +313,7 @@
   var faZones={dev:faRoot.querySelector('.z-dev'),repo:faRoot.querySelector('.z-repo'),build:faRoot.querySelector('.z-build'),test:faRoot.querySelector('.z-test'),report:faRoot.querySelector('.z-report')};
   var STEPS=[
     {chapter:'Intro',at:null,hot:[],arrow:null,cmd:'',cap:"Follow along as we set up Jenkins from scratch and run the first build."},
-    {chapter:'Install',at:'dev',hot:['dev'],arrow:null,cmd:'java -jar jenkins.war',cap:"Install and start Jenkins — locally, or as a background service."},
+    {chapter:'Install',at:'dev',hot:['dev'],arrow:null,cmd:'java -jar jenkins.war',cap:"Install Java 21, then install and start Jenkins — locally, or as a background service."},
     {chapter:'Unlock',at:'repo',hot:['repo'],arrow:'ar-push',cmd:'paste admin password',cap:"Unlock Jenkins using the initial admin password shown on first start."},
     {chapter:'Plugins',at:'build',hot:['build'],arrow:null,cmd:'install suggested plugins',cap:"Install the suggested plugins so Git, pipelines and common tools are ready to use."},
     {chapter:'New Job',at:'test',hot:['test'],arrow:'ar-build',cmd:'New Item → Freestyle',cap:"Create a new Freestyle job and configure it — repo URL, build steps."},
